@@ -1,0 +1,44 @@
+#!/usr/bin/env python3
+# coding: utf-8
+
+import re
+import argparse
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument(
+    "STUDENT_FILE", help="担当する学生の学籍番号(\d{10})を改行区切りのtxtファイルでまとめたもの")
+parser.add_argument("NOTE_FILE", help="ノートチェックファイル。学籍番号を元に分割する。")
+parser.add_argument("-l", "--log", action="store_true", help="ノートファイルを表示する")
+parser.add_argument("-o", "--output", type=str, default=None,
+                    help="抽出したファイルを指定したファイルパスに保存する。")
+
+args = parser.parse_args()
+
+with open(args.NOTE_FILE) as f:
+    note_str = f.read()
+
+with open(args.STUDENT_FILE) as f:
+    students = [s.replace("\n", "") for s in f.readlines()]
+
+pattern = "(?=\d{2}10370\d{3})"
+
+logs = {}
+for s in re.split(pattern, note_str):
+    if s[:10] in students:
+        logs[s[:10]] = s
+
+#sorted_logs = sorted(logs.items(), key=lambda x: x[0])
+
+print("numbers: ")
+for n in logs.keys():
+    print(n)
+
+if args.log:
+    print("notes: ")
+    for k, v in logs.items():
+        print(v)
+
+if args.output is not None:
+    with open(args.output, "w") as f:
+        f.writelines(logs.values())
