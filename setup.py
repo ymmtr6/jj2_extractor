@@ -4,7 +4,7 @@ with open("README.md", "r") as f:
     long_description = f.read()
 
 setuptools.setup(
-    name="jj2-extractor",
+    name="jj2extractor",
     version="0.0.1",
     author="riku yamamoto",
     author_email="ymmtr6@gmail.com",
