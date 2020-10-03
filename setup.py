@@ -11,7 +11,7 @@ setuptools.setup(
     description="for JJ2, Informatics, Kindai Univ.",
     long_description=long_description,
     url="https://github.com/ymmtr6/jj2_extractor",
-    pakages=setuptools.find_packages(where="jj2extractor"),
+    pakages=setuptools.find_packages(),
     classifiers=[
         "Programinng Language :: Python :: 3",
         "Lisence :: OSI Approved :: MIT Lisence",
