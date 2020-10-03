@@ -18,7 +18,10 @@ setuptools.setup(
         "Operationg System :: OS Independent"
     ],
     entry_points={
-        "console_scripts": ["jj2_extractor=jj2extractor.jj2extractor:main"]
+        "console_scripts": [
+            "jj2_extractor=jj2extractor.jj2extractor:main",
+            "jj2_logcheck=jj2extractor.jj2check.main"
+        ]
     },
     python_requires=">=3.5"
 )
