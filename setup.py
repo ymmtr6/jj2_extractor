@@ -4,7 +4,7 @@ with open("README.md", "r") as f:
     long_description = f.read()
 
 setuptools.setup(
-    name="jj2_extractor",
+    name="jj2-extractor",
     version="0.0.1",
     author="riku yamamoto",
     author_email="ymmtr6@gmail.com",
@@ -14,11 +14,11 @@ setuptools.setup(
     pakages=setuptools.find_packages(),
     classifiers=[
         "Programinng Language :: Python :: 3",
-        "Lisence :: MIT Lisence",
+        "Lisence :: OSI Approved :: MIT Lisence",
         "Operationg System :: OS Independent"
     ],
     entry_points={
-        "console_scripts": ["jj2_extractor=jj2_extractor.jj2_extractor:main"]
+        "console_scripts": ["jj2_extractor=jj2-extractor.jj2-extractor:main"]
     },
     python_requires=">=3.5"
 )
