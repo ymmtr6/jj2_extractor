@@ -24,20 +24,7 @@ class Checker(object):
             self.answer = f.read()
         self.pattern = pattern
         self.logs = {}
-
-    def translate(self, input1):
-        return input1.strip().translate(str.maketrans({
-            "：": ":",
-            "、": ",",
-            "，": ",",
-            "。": ".",
-            "．": ".",
-            "　": "",
-            "”": "\""
-        })).replace(" ", "").replace("\t", "")
-
-    def reformat(self, input_str):
-        input_str = input_str.strip().translate(str.maketrans({
+        self.trans = str.maketrans({
             "：": ":",
             "、": ",",
             "，": ",",
@@ -70,8 +57,13 @@ class Checker(object):
             "；": ";",
             "？": "?",
             "／": "/",
+        })
 
-        }))
+    def translate(self, input1):
+        return input1.strip().translate(self.trans).replace(" ", "").replace("\t", "")
+
+    def reformat(self, input_str):
+        input_str = input_str.strip().translate(self.trans)
         spliter = [
             "\n",
             "\r\n",
