@@ -91,7 +91,7 @@ class Checker(object):
         for n in self.logs.keys():
             if f_answer not in self.reformat(self.logs[n]):
                 print("{}: NG".format(n))
-                print(self.diff(self.answer, self.logs[n]))
+                print(self.diff(self.logs[n], self.answer).strip())
             else:
                 print("{}: {}".format(n, "OK"))
 
