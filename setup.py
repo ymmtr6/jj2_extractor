@@ -20,7 +20,7 @@ setuptools.setup(
     entry_points={
         "console_scripts": [
             "jj2_extractor=jj2extractor.jj2extractor:main",
-            "jj2_logcheck=jj2extractor.jj2check.main"
+            "jj2_logcheck=jj2extractor.jj2check:main"
         ]
     },
     python_requires=">=3.5"
