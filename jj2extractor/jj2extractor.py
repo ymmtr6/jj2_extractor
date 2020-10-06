@@ -34,7 +34,7 @@ class Extractor():
             print(n)
 
     def print_logs(self):
-        for k, v in self.logs.keys():
+        for k, v in self.logs.items():
             print(v)
 
     def output(self, filename):
